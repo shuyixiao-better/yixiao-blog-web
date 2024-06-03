@@ -9,6 +9,7 @@ import Antd from 'ant-design-vue';
 // 测试接口函数
 import { getCategoryAPI } from '@/apis/test.js';
 import router from "@/router/index.js";
+import ContentComponent from '@/views/Home/ContentComponent.vue'
 getCategoryAPI().then(res => {
     console.log(res);
 });
@@ -16,10 +17,13 @@ getCategoryAPI().then(res => {
 // 创建应用实例
 const app = createApp(App);
 
+app.component('content-component', ContentComponent)
+
 const pinia = createPinia();
 app.use(pinia);
 app.use(router);
 app.use(Antd);
+
 app.mount('#app');
 
 // 将 httpInstance 挂载到全局属性中，便于在组件中使用

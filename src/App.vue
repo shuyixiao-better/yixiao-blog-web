@@ -1,12 +1,14 @@
 <template>
-  <div>
-
-  </div>
+    <ContentComponent />
 </template>
 
-<script setup>
+<script>
+import ContentComponent from '@/views/Home/ContentComponent.vue';
+
+export default {
+  name: 'App',
+  components: {
+    ContentComponent
+  }
+}
 </script>
-
-<style scoped>
-
-</style>
