@@ -10,6 +10,7 @@ import Antd from 'ant-design-vue';
 import { getCategoryAPI } from '@/apis/test.js';
 import router from "@/router/index.js";
 import ContentComponent from '@/views/Home/ContentComponent.vue'
+import ElementPlus from 'element-plus'
 getCategoryAPI().then(res => {
     console.log(res);
 });
@@ -23,6 +24,7 @@ const pinia = createPinia();
 app.use(pinia);
 app.use(router);
 app.use(Antd);
+app.use(ElementPlus);
 
 app.mount('#app');
 
