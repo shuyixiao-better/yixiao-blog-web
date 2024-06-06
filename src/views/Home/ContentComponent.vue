@@ -45,7 +45,7 @@
             <span>热搜</span>
           </div>
         </template>
-        Task
+        <router-link to="/hot"></router-link>
       </el-tab-pane>
       <el-tab-pane label="留言版" name="six">
         <template #label>

@@ -4,7 +4,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '@/views/Login/index.vue'
 import Layout from '@/views/Layout/index.vue'
-import Category from '@/views/Category/index.vue'
+import Hot from '@/views/Search/hot.vue'
 
 const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
@@ -15,8 +15,8 @@ const router = createRouter({
             component: Layout,
             children: [
                 {
-                    path: 'category',
-                    component: Category
+                    path: "/hot",
+                    component: Hot,
                 }
             ]
         },
