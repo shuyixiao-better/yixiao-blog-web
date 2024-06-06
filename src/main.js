@@ -4,16 +4,13 @@ import { createPinia } from 'pinia';
 import { createApp } from 'vue';
 import App from './App.vue';
 import httpInstance from './utils/http';  // 引入 axios 实例
-import Antd from 'ant-design-vue';
 
-// 测试接口函数
-import { getCategoryAPI } from '@/apis/test.js';
+
 import router from "@/router/index.js";
 import ContentComponent from '@/views/Home/ContentComponent.vue'
+// 导入element-plus依赖
 import ElementPlus from 'element-plus'
-getCategoryAPI().then(res => {
-    console.log(res);
-});
+import 'element-plus/dist/index.css'
 
 // 创建应用实例
 const app = createApp(App);
@@ -23,7 +20,6 @@ app.component('content-component', ContentComponent)
 const pinia = createPinia();
 app.use(pinia);
 app.use(router);
-app.use(Antd);
 app.use(ElementPlus);
 
 app.mount('#app');
