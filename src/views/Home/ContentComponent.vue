@@ -110,5 +110,9 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
   width: 100%;
   padding: 45px 0 12px 0;
 }
+.app-container {
+  background-color: white; /* 设置白色背景 */
+  min-height: 100vh; /* 确保背景覆盖整个视口高度 */
+}
 
 </style>

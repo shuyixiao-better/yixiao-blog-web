@@ -11,6 +11,9 @@ import ContentComponent from '@/views/Home/ContentComponent.vue'
 // 导入element-plus依赖
 import ElementPlus from 'element-plus'
 import 'element-plus/dist/index.css'
+// 导入全局白色底色样式
+import './assets/global.css';
+
 
 // 创建应用实例
 const app = createApp(App);
