@@ -73,10 +73,6 @@
       Task
     </el-tab-pane>
   </el-tabs>
-  <div class="search-container">
-    <input type="text" class="search-input" placeholder="Search...">
-    <button class="search-button">🔍</button>
-  </div>
 </template>
 <script lang="ts" setup>
 import { ref } from 'vue'
@@ -103,34 +99,5 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
   color: #6b778c;
   font-size: 32px;
   font-weight: 600;
-}
-
-.search-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 32px;
-}
-.search-input {
-  width: 200px;
-  padding: 32px;
-  border: 1px solid #ccc;
-  border-radius: 4px 0 0 4px;
-  outline: none;
-  float: right;
-  transition: border-color 0.3s;
-}
-.search-button {
-  padding: 8px 12px;
-  border: 1px solid #007BFF;
-  border-left: none;
-  border-radius: 0 4px 4px 0;
-  background-color: #007BFF;
-  color: white;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
-.search-button:hover {
-  background-color: #0056b3;
 }
 </style>
