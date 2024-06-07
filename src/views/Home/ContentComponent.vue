@@ -42,10 +42,11 @@
         <template #label>
           <div class="custom-tabs-label">
             <el-icon :size="26"><HotSearchIcon /></el-icon>
-            <span>热搜</span>
+            <a href="#/hot">热搜</a>
           </div>
         </template>
-        <router-link to="/hot"></router-link>
+
+        <component :is="currentView" />
       </el-tab-pane>
       <el-tab-pane label="留言版" name="six">
         <template #label>
@@ -78,7 +79,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { ref } from 'vue'
+import { ref,computed } from 'vue'
 import type { TabsPaneContext } from 'element-plus'
 import HomeIcon from "@/assets/icon/HomeIcon.vue";
 import ArticleArchiveIcon from "@/assets/icon/ArticleArchiveIcon.vue";
@@ -88,12 +89,25 @@ import HotSearchIcon from "@/assets/icon/HotSearchIcon.vue";
 import NoticeBoardIcon from "@/assets/icon/NoticeBoardIcon.vue";
 import LinkIcon from "@/assets/icon/LinkIcon.vue";
 import AboutTheSiteIcon from "@/assets/icon/AboutTheSiteIcon.vue";
+import Hot from "@/views/Search/hot.vue";
 
 const activeName = ref('first')
 
 const handleClick = (tab: TabsPaneContext, event: Event) => {
   console.log(tab, event)
 }
+const routes = {
+  '/hot': Hot
+}
+const currentPath = ref(window.location.hash)
+
+window.addEventListener('hashchange', () => {
+  currentPath.value = window.location.hash
+})
+
+const currentView = computed(() => {
+  return routes[currentPath.value.slice(1) || '/']
+})
 </script>
 
 <style scoped lang="scss">
@@ -113,6 +127,9 @@ const handleClick = (tab: TabsPaneContext, event: Event) => {
 .app-container {
   background-color: white; /* 设置白色背景 */
   min-height: 100vh; /* 确保背景覆盖整个视口高度 */
+}
+a {
+  text-decoration: none;
 }
 
 </style>

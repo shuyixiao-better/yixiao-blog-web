@@ -46,14 +46,5 @@ export default defineConfig({
         rewrite: (path) => path.replace(/^\/api/, ''),  // 重写路径
       },
     },
-  },
-  configureServer: (server) => {
-    server.httpServer.on('listening', () => {
-      const address = server.httpServer.address();
-      const localHost = `http://localhost:${address.port}`;
-      const networkHost = `http://${localIPAddress}:${address.port}`;
-      console.log(`\n  ➜  Local: ${localHost}`);
-      console.log(`  ➜  Network: ${networkHost}`);
-    });
   }
 });
