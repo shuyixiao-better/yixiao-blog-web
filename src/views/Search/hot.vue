@@ -1,38 +1,3 @@
-<script setup>
-import { reactive, onMounted } from 'vue';
-import {getHotAPI} from '@/apis/hotSearch.js';
-
-// 使用 reactive 来创建响应式数据
-const state = reactive({
-  baiduList: [],
-  weiboList: [],
-  zhihuList: [],
-  csdnList: [],
-  toutiaoList: [],
-});
-
-// 使用 onMounted 代替 created 钩子函数
-onMounted(() => {
-  getHotAPI("baidu").then(res => {
-    state.baiduList = res.data.data;
-  });
-  // 重复的 API 调用可以封装成函数，避免代码重复
-  const fetchData = (source) => {
-    getHotAPI(source).then(res => {
-      state[source + 'List'] = res.data.data;
-    });
-  };
-  fetchData("weibo");
-  fetchData("zhihu");
-  fetchData("csdn");
-  fetchData("toutiao");
-});
-
-function go(url) {
-  window.open(url, "_blank");
-}
-</script>
-
 <template>
   <div class="hot">
     <div class="weibo">
@@ -128,6 +93,52 @@ function go(url) {
     </div>
   </div>
 </template>
+
+<script setup>
+import { reactive, onMounted } from 'vue';
+import { onBeforeRouteUpdate } from 'vue-router';
+import { getHotAPI } from '@/apis/hotSearch.js';
+
+// 使用 reactive 来创建响应式数据
+const state = reactive({
+  baiduList: [],
+  weiboList: [],
+  zhihuList: [],
+  csdnList: [],
+  toutiaoList: [],
+});
+
+// 封装重复的 API 调用
+const fetchData = (source) => {
+  getHotAPI(source).then(res => {
+    state[source + 'List'] = res.data.data;
+  });
+};
+
+// 加载所有数据
+const loadAllData = () => {
+  fetchData("baidu");
+  fetchData("weibo");
+  fetchData("zhihu");
+  fetchData("csdn");
+  fetchData("toutiao");
+};
+
+// 使用 onMounted 代替 created 钩子函数
+onMounted(() => {
+  loadAllData();
+});
+
+// 监听路由变化并加载数据
+onBeforeRouteUpdate((to, from, next) => {
+  loadAllData();
+  next();
+});
+
+function go(url) {
+  window.open(url, "_blank");
+}
+</script>
 
 <style scoped lang="scss">
 .hot {

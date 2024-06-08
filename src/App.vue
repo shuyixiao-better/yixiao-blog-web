@@ -1,5 +1,7 @@
 <template>
+  <header>
     <ContentComponent />
+  </header>
 </template>
 
 <script>
