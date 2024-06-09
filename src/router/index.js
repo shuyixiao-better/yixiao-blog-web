@@ -1,8 +1,4 @@
-// createRouter：创建router实例对象
-// createWebHistory：创建history模式的路由
-
 import { createRouter, createWebHistory } from 'vue-router'
-import Login from '@/views/Login/index.vue'
 import Layout from '@/views/Layout/index.vue'
 import Hot from "@/views/Search/hot.vue";
 
@@ -12,17 +8,13 @@ const router = createRouter({
     routes: [
         {
             path: '/',
+            name: Layout,
             component: Layout,
-            children: [
-                {
-                    path: "/hot",
-                    component: Hot,
-                }
-            ]
         },
         {
-            path: '/login',
-            component: Login
+            path: '/hot',
+            name: Hot,
+            component: Hot
         }
     ]
 })

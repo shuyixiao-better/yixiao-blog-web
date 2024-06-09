@@ -129,7 +129,6 @@ onMounted(() => {
   loadAllData();
 });
 
-// 监听路由变化并加载数据
 onBeforeRouteUpdate((to, from, next) => {
   loadAllData();
   next();
@@ -144,7 +143,7 @@ function go(url) {
 .hot {
   grid-template-columns: repeat(5, 1fr);
   display: grid;
-
+  background-color: #7f7f8c;
   .weibo,
   .baidu,
   .zhihu,
