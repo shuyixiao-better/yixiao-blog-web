@@ -26,16 +26,6 @@
             position: relative; /* 相对定位 */
         }
 
-        .centered-text {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 4rem; /* Adjust font size as needed */
-            font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Adds shadow to text for better visibility */
-        }
-
         .arrow {
             position: absolute;
             bottom: 20px;
@@ -58,18 +48,33 @@
             }
         }
 
+        @keyframes colorCycle {
+            0% { background-color: #424243; }
+            10% { background-color: #8e44ad; }
+            20% { background-color: #3498db; }
+            30% { background-color: #1abc9c; }
+            40% { background-color: #f1c40f; }
+            50% { background-color: #e67e22; }
+            60% { background-color: #9b59b6; }
+            70% { background-color: #34495e; }
+            80% { background-color: #292218; }
+            90% { background-color: #2c3e50; }
+            100% { background-color: #e74c3c; }
+        }
+
         .footer {
-            background-color: #2c3e50;
+            animation: colorCycle 10s infinite;
             text-align: center;
             padding: 10px;
             font-size: 12px;
             color: white;
             width: 100%;
         }
-
-        .footer a {
-            color: #1abc9c;
-            text-decoration: none;
+        .blog-link{
+            color: black; /* 设置文字颜色为黑色 */
+            font-family: 'KaiTi', '楷体', serif;
+            text-decoration: none; /* 移除下划线 */
+            font-size: 20px;
         }
     </style>
 </head>
@@ -88,8 +93,8 @@
 </div>
 <div id="app"></div>
 <div class="footer">
-    <p>我的网站</p>
-    <a href="https://blog.csdn.net/weixin_50503886?spm=1000.2115.3001.5343">友情链接</a>
+    <p>CSDN直达链接</p>
+    <a href="https://blog.csdn.net/weixin_50503886?spm=1000.2115.3001.5343" class="blog-link">博客链接</a>
 </div>
 <script type="module" src="/src/main.js"></script>
 </body>
