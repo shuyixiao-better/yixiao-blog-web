@@ -213,8 +213,9 @@ nav .menu-item:hover{
 nav .menu-item a{
   color: #7f7f8c;
   text-decoration: none;
-  font-family: 'KaiTi', '楷体', serif;
+  font-family: '微软雅黑 Light', serif;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .icon {
