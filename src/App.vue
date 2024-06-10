@@ -8,7 +8,7 @@
         </div>
         <div class="description">
           舒一笑<br/>
-          免费的技术分享
+          <a>免费的技术分享</a>
         </div>
         <div class="socialLinks">
           <el-popover placement="top" :width="225" trigger="hover">
@@ -90,10 +90,7 @@
             />
           </el-popover>
         </div>
-        <img
-            src="https://shadow.elemecdn.com/app/element/hamburger.9cf7b091-55e9-11e9-a976-7f4d0b07eef6.png"
-            style="width: 100%"
-        />
+
       </el-card>
     </div>
   </header>
@@ -139,6 +136,8 @@ export default {
   text-align: center; /* 文本居中 */
   font-size: 20px; /* 根据需要调整字体大小 */
   color: #333; /* 根据需要调整文本颜色 */
+}
+.description a{
   font-weight: bold;
 }
 
@@ -147,4 +146,5 @@ export default {
   justify-content: center;
   align-items: center;
 }
+
 </style>
