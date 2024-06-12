@@ -21,9 +21,7 @@ const app = createApp(App);
 app.component('content-component', ContentComponent)
 
 const pinia = createPinia();
-app.use(router);
-app.use(ElementPlus);
-createApp(App).use(pinia).mount('#app')
+createApp(App).use(pinia).use(router).use(ElementPlus).mount('#app')
 
 // 将 httpInstance 挂载到全局属性中，便于在组件中使用
 app.config.globalProperties.$http = httpInstance;
