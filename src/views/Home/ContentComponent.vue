@@ -199,7 +199,7 @@ nav{
 }
 
 nav .menu-item{
-  color: #FFF;
+  color: #989494;
   padding: 5px 30px;
   position: relative;
   border-bottom: 3px solid transparent;
