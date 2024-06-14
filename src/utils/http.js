@@ -13,9 +13,7 @@ httpInstance.interceptors.request.use(config => {
         // 1. 从pinia获取token数据
         const tokenInfoStore = getTokenInfoStore()
         // 2. 按照后端要求拼接token数据
-        console.log("2222:", tokenInfoStore)
         const token = tokenInfoStore.serveTokenInfo.accessToken
-        console.log("token:", token)
         if (token){
             config.headers.Authorization = `Bearer ${token}`
         }
