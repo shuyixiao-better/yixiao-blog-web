@@ -28,3 +28,28 @@ coverage
 *.sw?
 
 *.tsbuildinfo
+.github
+.npmrc
+.cache
+
+tests/server/static
+tests/server/static/upload
+
+.local
+# local env files
+.env.local
+.env.*.local
+.eslintcache
+
+# Log files
+*.lock
+
+
+# Editor directories and files
+
+# .vscode
+/os_del.cmd
+/.vscode/
+/.history/
+/svn clear.bat
+
